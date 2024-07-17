@@ -1,0 +1,24 @@
+[include]
+  path = /home/alx/.config/delta/themes/catppuccin.gitconfig
+
+[user]
+	name = AlxTray
+  email = alex.ashby02@icloud.com
+
+[core]
+  editor = lvim
+  pager = delta
+	autocrlf = input
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  features = catppuccin-mocha
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default

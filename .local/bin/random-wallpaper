@@ -1,0 +1,58 @@
+#!/bin/python
+
+# SETTINGS
+TIME = 1200 # seconds
+WALLPAPER_DIRECTORY = "~/.config/hypr/wallpapers/"
+
+# CODE
+import os
+import random
+import threading
+
+def command(cmd):
+    return os.popen(cmd).read().strip()
+
+wallpaperDir = os.path.expanduser(WALLPAPER_DIRECTORY)
+wallpaperMemory = []
+
+rawmonitors = command("wlr-randr | grep \\\"").split("\n")
+monitors = []
+for monitor in rawmonitors:
+    monitors.append(monitor.split(" \"")[0])
+
+def set_interval(func, sec):
+    def func_wrapper():
+        set_interval(func, sec)
+        func()
+    t = threading.Timer(sec, func_wrapper)
+    t.start()
+    return t
+
+def set_wallpaper():
+    global wallpaperDir
+    global wallpaperMemory
+    global monitors
+    global FANCY
+
+    wallpapers = os.listdir(wallpaperDir)
+
+    if len(wallpaperMemory) != 0:
+        for entry in wallpaperMemory:
+            try:
+                wallpapers.remove(entry)
+            except:
+                # We need something here because python
+                print("Could not find current wallpaper in wallpaper folder!")
+
+    selectedWallpapers = []
+
+    for output in monitors:
+        wp = wallpapers.pop(random.randint(0, len(wallpapers)-1))
+        command("swww img --transition-type any -o " + output + " " + wallpaperDir + "/" + wp)
+        selectedWallpapers.append(wp)
+
+    wallpaperMemory = selectedWallpapers
+    return
+
+set_wallpaper()
+set_interval(set_wallpaper,TIME)

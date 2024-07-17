@@ -1,0 +1,154 @@
+[{
+    "layer": "top",
+    "output": "DP-1",
+
+    "modules-left": ["hyprland/workspaces", "custom/weather", "network"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "disk", "cpu", "temperature", "memory", "custom/exit"],
+
+    "hyprland/workspaces": {
+         "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
+         },
+         "disable-scroll": true,
+         "all-outputs": false,
+         "warp-on-scroll": false,
+         "format": "{icon}",
+         "format-icons": {
+             "active": "",
+             "default": ""
+         }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 3
+    },
+    "clock": {
+        "format": "  {:%I:%M%p    %a, %b %e}",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+    "custom/exit": {
+    	  "on-click": "sleep 0.15; wlogout",
+	      "format": "  ",
+	      "tooltip": false
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{used} out of {free} ",
+        "path": "/",
+        "on-click": "kitty -e btop",
+	      "tooltip": false
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "python ~/.config/waybar/waybar-wttr.py",
+        "return-type": "json"
+    },
+    "network": {
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ipaddr}/{cidr}",
+        "tooltip-format": "  {ifname} via {gwaddr}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "⚠  Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    }
+},  {  
+    "layer": "top",
+    "output": "HDMI-A-1",
+
+    "modules-left": ["hyprland/workspaces", "custom/weather", "network"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "disk", "cpu", "temperature", "memory", "custom/exit"],
+
+    "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": [],
+            "11": [],
+            "12": []
+         },
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 3
+    },
+    "clock": {
+        "format": "  {:%I:%M%p    %a, %b %e}",
+        "tooltip": false
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+    "custom/exit": {
+        "on-click": "sleep 0.15; wlogout",
+        "format": "  ",
+        "tooltip": false
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{used} out of {free} ",
+        "path": "/",
+        "on-click": "kitty -e btop",
+        "tooltip": false
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "python ~/.config/waybar/waybar-wttr.py",
+        "return-type": "json"
+    },
+    "network": {
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "  {ipaddr}/{cidr}",
+        "tooltip-format": "  {ifname} via {gwaddr}",
+        "format-linked": "  {ifname} (No IP)",
+        "format-disconnected": "⚠  Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    }
+}]
+

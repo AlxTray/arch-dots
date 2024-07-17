@@ -1,0 +1,18 @@
+font = "Sans Regular"
+font-size = 13
+border-width = 2
+outline-width = 0
+corner-radius = 10
+prompt-padding = 10
+
+selection-match-color = #f38ba8
+
+fuzzy-match = true
+height = 400
+width = 550
+
+text-color = #cdd6f4
+prompt-color = #f38ba8
+selection-color = #89b4fa
+background-color = #1e1e2edd
+border-color = #89b4fa

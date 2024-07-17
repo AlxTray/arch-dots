@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+CHOICE="$PINENTRY_USER_DATA"
+export PINENTRY_USER_DATA=
+
+DEFAULT_EXEC=pinentry
+CHOICE_EXEC="$DEFAULT_EXEC-$CHOICE"
+
+if which "/usr/bin/$CHOICE_EXEC" &>/dev/null; then
+  exec "/usr/bin/$CHOICE_EXEC" "$@"
+else
+  exec "/usr/bin/$DEFAULT_EXEC" "$@"
+fi
